@@ -4,8 +4,6 @@
 #
 # Recommended: Go.AllowList.gitignore
 
-# Ignore everything
-*
 
 # But not these files...
 !/.gitignore
@@ -19,5 +17,3 @@
 
 # !Makefile
 
-# ...even if they are in subdirectories
-!*/
