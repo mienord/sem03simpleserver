@@ -37,13 +37,13 @@ func main() {
                                                 return
                                         }
                                         log.Println("Krypter melding: ", string(buf[:n]))
-                                        cryptedMsg := mycrypt.Krypter([]rune(string(buf[:n])), mycrypt.ALF_SEM03, len(mycrypt.ALF_SEM03)-4)
+                                        cryptedMsg := mycrypt.Krypter([]rune(string(buf[:n])), mycrypt.ALF_SEM03, len(mycrypt.ALF_SEM03)4)
                                         log.Println("Kryptert melding: ", string(cryptedMsg))
 					
 					switch msg := string(cryptedMsg); msg {
 					case "ping":
     					resp := mycrypt.Krypter([]rune("pong"), mycrypt.ALF_SEM03, len(mycrypt.ALF_SEM03)-4)
-    						_, err = c.Write([]byte(resp))
+    						_, err = c.Write([]byte(string(resp))
 					default:
     					resp := mycrypt.Krypter([]rune(msg), mycrypt.ALF_SEM03, len(mycrypt.ALF_SEM03)-4)
     						_, err = c.Write([]byte(string(resp)))
@@ -59,4 +59,3 @@ func main() {
         }()
         wg.Wait()
 }
-üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüü�ééééééééééééééééééééééééééééééééééééééééééééééééééééééééløøj
