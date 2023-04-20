@@ -37,19 +37,19 @@ func main() {
 						}
 						return
 					}
-					log.Println("Melding mottatt: ", string(buf[:n]))
+					log.Println("Melding fra klient mottatt: ", string(buf[:n]))
 					decryptedMsg := mycrypt.DeKrypter([]rune(string(buf[:n])), mycrypt.ALF_SEM03, -4)
-					log.Println("Melding dekryptert: ", string(decryptedMsg))
+					log.Println("Melding fra klient dekryptert: ", string(decryptedMsg))
 
 					switch msg := string(decryptedMsg); msg {
 					case "ping":
-						resp := mycrypt.Krypter([]rune("pong"), mycrypt.ALF_SEM03, 4)
-						log.Println("Svar: ", string(resp))
-						_, err = c.Write([]byte(string(resp)))
+					    resp := mycrypt.Krypter([]rune("pong"), mycrypt.ALF_SEM03, 4)
+					    log.Println("Svar: ", string(resp))
+					    _, err = c.Write([]byte(string(resp)))
 					default:
-						resp := mycrypt.Krypter([]rune(msg), mycrypt.ALF_SEM03, 4)
-						log.Println("Svar: ", string(resp))
-						_, err = c.Write([]byte(string(resp)))
+					    resp := mycrypt.Krypter([]rune(msg), mycrypt.ALF_SEM03, 4)
+					    log.Println("Svar: ", string(resp))
+					    _, err = c.Write([]byte(string(resp)))
 					}
 					if err != nil {
 						if err != io.EOF {
