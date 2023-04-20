@@ -38,7 +38,7 @@ func main() {
 						return
 					}
 					log.Println("Melding fra klient mottatt: ", string(buf[:n]))
-					decryptedMsg := mycrypt.DeKrypter([]rune(string(buf[:n])), mycrypt.ALF_SEM03, -4)
+					decryptedMsg := mycrypt.DeKrypter([]rune(string(buf[:n])), mycrypt.ALF_SEM03, len(mycrypt.ALF_SEM03)-4)
 					log.Println("Melding fra klient dekryptert: ", string(decryptedMsg))
 
 					switch msg := string(decryptedMsg); msg {
